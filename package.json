@@ -1,5 +1,5 @@
 {
-  "name": "vue-table-component",
+  "name": "rai-vue-table-component",
   "version": "1.7.0",
   "description": "A straightforward Vue component to filter and sort tables",
   "main": "dist/index.js",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/spatie/vue-table-component.git"
+    "url": "https://github.com/ResaleAI/vue-table-component"
   },
   "keywords": [
     "spatie"
@@ -24,7 +24,7 @@
   "bugs": {
     "url": "https://github.com/spatie/vue-table-component/issues"
   },
-  "homepage": "https://github.com/spatie/vue-table-component",
+  "homepage": "https://github.com/ResaleAI/vue-table-component",
   "peerDependencies": {
     "moment": "^2.18.1",
     "vue": "^2.3.0"
