@@ -87,6 +87,7 @@
 
             showFilter: { default: true },
             showCaption: { default: true },
+            showSearchIcon: {default: false },
 
             sortBy: { default: '', type: String },
             sortOrder: { default: '', type: String },
