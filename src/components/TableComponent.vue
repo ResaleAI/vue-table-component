@@ -7,11 +7,17 @@
                     v-model="filter"
                     :placeholder="filterPlaceholder"
             >
+            <i
+                    v-if="showSearchIcon && !filter"
+                    class="fa fa-search table-component__filter__search-icon"
+            ></i>
             <a
                     v-if="filter"
                     @click="filter = ''"
                     class="table-component__filter__clear"
-            >×</a>
+            >
+                <slot name="filter-clear-content">x</slot>
+            </a>
         </div>
 
         <div class="table-component__table-wrapper">
