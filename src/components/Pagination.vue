@@ -2,12 +2,12 @@
     <nav v-if="shouldShowPagination">
         <ul class="pagination justify-content-center">
             <li class="page-item" :class="{'disabled': previousDisabled}">
-                <a class="page-link" @click="previousClicked">
+                <a class="page-link" @click.prevent="previousClicked">
                     <slot name="pagination-previous-content">&lt;</slot>
                 </a>
             </li>
             <li class="page-item" :class="{'disabled': nextDisabled}">
-                <a class="page-link" @click="nextClicked">
+                <a class="page-link" @click.prevent="nextClicked">
                     <slot name="pagination-next-content">&gt;</slot>
                 </a>
             </li>
@@ -46,7 +46,7 @@
             },
 
             currentPage () {
-                return this.pagination.currentPage || 1;
+                return parseInt(this.pagination.currentPage || 1);
             },
 
             totalPages () {
@@ -99,3 +99,8 @@
         },
     };
 </script>
+<style>
+    .page-link:hover {
+        cursor: pointer;
+    }
+</style>
