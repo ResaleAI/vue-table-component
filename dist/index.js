@@ -8405,7 +8405,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "pageChange": _vm.pageChange
     }
-  }, [_vm._t("pagination-previous-content", [_vm._v("<")]), _vm._v(" "), _vm._t("pagination-next-content", [_vm._v(">")])], 2) : _vm._e()], 1)
+  }, [_vm._t("pagination-previous-content"), _vm._v(" "), _vm._t("pagination-next-content")], 2) : _vm._e()], 1)
 },staticRenderFns: []}
 
 /***/ }),
