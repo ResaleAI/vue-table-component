@@ -59,7 +59,10 @@
             <slot></slot>
         </div>
 
-        <pagination v-if="pagination" :pagination="pagination" @pageChange="pageChange"></pagination>
+        <pagination v-if="pagination" :pagination="pagination" @pageChange="pageChange">
+            <slot name="pagination-previous-content">&lt;</slot>
+            <slot name="pagination-next-content">&gt;</slot>
+        </pagination>
     </div>
 </template>
 

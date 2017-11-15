@@ -3,12 +3,12 @@
         <ul class="pagination justify-content-center">
             <li class="page-item" :class="{'disabled': previousDisabled}">
                 <a class="page-link" @click="previousClicked">
-                    <span slot="pagination-previous-content">&lt;</span>
+                    <slot name="pagination-previous-content">&lt;</slot>
                 </a>
             </li>
             <li class="page-item" :class="{'disabled': nextDisabled}">
                 <a class="page-link" @click="nextClicked">
-                    <span slot="pagination-next-content">&gt;</span>
+                    <slot name="pagination-next-content">&gt;</slot>
                 </a>
             </li>
         </ul>
