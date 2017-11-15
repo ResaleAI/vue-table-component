@@ -2260,6 +2260,9 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
                 default: function _default() {
                     return {};
                 }
+            },
+            faPagination: {
+                default: false
             }
         },
 
@@ -2548,7 +2551,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
             tbodyClass: { default: _settings2.default.tbodyClass },
             filterInputClass: { default: _settings2.default.filterInputClass },
             filterPlaceholder: { default: _settings2.default.filterPlaceholder },
-            filterNoResults: { default: _settings2.default.filterNoResults }
+            filterNoResults: { default: _settings2.default.filterNoResults },
+            faPagination: { default: false }
         },
 
         data: function data() {
@@ -8302,7 +8306,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.previousClicked($event)
       }
     }
-  }, [_vm._t("pagination-previous-content", [_vm._v("<")])], 2)]), _vm._v(" "), _c('li', {
+  }, [(_vm.faPagination) ? _c('span', [_c('i', {
+    staticClass: "fa fa-chevron-left"
+  })]) : _vm._e(), _vm._v(" "), _c('span', {
+    directives: [{
+      name: "ielse",
+      rawName: "v-ielse"
+    }]
+  }, [_vm._v("<")])])]), _vm._v(" "), _c('li', {
     staticClass: "page-item",
     class: {
       'disabled': _vm.nextDisabled
@@ -8315,7 +8326,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.nextClicked($event)
       }
     }
-  }, [_vm._t("pagination-next-content", [_vm._v(">")])], 2)])])]) : _vm._e()
+  }, [(_vm.faPagination) ? _c('span', [_c('i', {
+    staticClass: "fa fa-chevron-right"
+  })]) : _vm._e(), _vm._v(" "), _c('span', {
+    directives: [{
+      name: "ielse",
+      rawName: "v-ielse"
+    }]
+  }, [_vm._v(">")])])])])]) : _vm._e()
 },staticRenderFns: []}
 
 /***/ }),
@@ -8400,12 +8418,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_vm._t("default")], 2), _vm._v(" "), (_vm.pagination) ? _c('pagination', {
     attrs: {
-      "pagination": _vm.pagination
+      "pagination": _vm.pagination,
+      "faPagination": _vm.faPagination
     },
     on: {
       "pageChange": _vm.pageChange
     }
-  }, [_vm._t("pagination-previous-content"), _vm._v(" "), _vm._t("pagination-next-content")], 2) : _vm._e()], 1)
+  }) : _vm._e()], 1)
 },staticRenderFns: []}
 
 /***/ }),

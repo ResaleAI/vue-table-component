@@ -28,6 +28,7 @@
             },
             faPagination: {
                 default: false,
+            }
         },
 
         computed: {
