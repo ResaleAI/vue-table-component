@@ -2274,6 +2274,22 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
                 }
 
                 return this.pagination.totalPages > 1;
+            },
+            currentPage: function currentPage() {
+                return this.pagination.currentPage || 1;
+            },
+            totalPages: function totalPages() {
+                var ret = 0;
+                if (!!this.pagination && !!this.pagination.totalPages) {
+                    ret = this.pagination.totalPages;
+                }
+                return ret;
+            },
+            previousDisabled: function previousDisabled() {
+                return this.currentPage === 1;
+            },
+            nextDisabled: function nextDisabled() {
+                return this.currentPage === this.totalPages;
             }
         },
 
@@ -2289,6 +2305,20 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
                 }
 
                 this.$emit('pageChange', page);
+            },
+            previousClicked: function previousClicked() {
+                var page = this.currentPage - 1;
+                var previousAllowed = page > 0;
+                if (previousAllowed) {
+                    this.$emit('pageChange', page);
+                }
+            },
+            nextClicked: function nextClicked() {
+                var page = this.currentPage + 1;
+                var nextAllowed = page <= this.totalPages;
+                if (nextAllowed) {
+                    this.$emit('pageChange', page);
+                }
             }
         }
     };
@@ -8160,21 +8190,27 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return (_vm.shouldShowPagination) ? _c('nav', [_c('ul', {
     staticClass: "pagination justify-content-center"
-  }, _vm._l((_vm.pages), function(page) {
-    return _c('li', {
-      staticClass: "page-item",
-      class: {
-        active: _vm.isActive(page)
-      }
-    }, [_c('a', {
-      staticClass: "page-link",
-      on: {
-        "click": function($event) {
-          _vm.pageClicked(page)
-        }
-      }
-    }, [_vm._v(_vm._s(page))])])
-  }))]) : _vm._e()
+  }, [_c('li', {
+    staticClass: "page-item",
+    class: {
+      'disabled': _vm.previousDisabled
+    }
+  }, [_c('a', {
+    staticClass: "page-link",
+    on: {
+      "click": _vm.previousClicked
+    }
+  }, [_vm._t("pagination-previous-content", [_vm._v("<")])], 2)]), _vm._v(" "), _c('li', {
+    staticClass: "page-item",
+    class: {
+      'disabled': _vm.nextDisabled
+    }
+  }, [_c('a', {
+    staticClass: "page-link",
+    on: {
+      "click": _vm.nextClicked
+    }
+  }, [_vm._t("pagination-next-content", [_vm._v(">")])], 2)])])]) : _vm._e()
 },staticRenderFns: []}
 
 /***/ }),
@@ -8264,7 +8300,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "pageChange": _vm.pageChange
     }
-  }) : _vm._e()], 1)
+  }, [_vm._t("pagination-previous-content", [_vm._v("<")]), _vm._v(" "), _vm._t("pagination-next-content", [_vm._v(">")])], 2) : _vm._e()], 1)
 },staticRenderFns: []}
 
 /***/ }),
