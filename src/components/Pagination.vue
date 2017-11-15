@@ -4,7 +4,7 @@
             <li class="page-item" :class="{'disabled': previousDisabled}">
                 <a class="page-link" @click.prevent="previousClicked">
                     <span v-if="faPagination"><i class="fa fa-chevron-left"></i></span>
-                    <span v-ielse>&lt;</span>
+                    <span v-else>&lt;</span>
                 </a>
             </li>
             <li class="page-item" :class="{'disabled': nextDisabled}">
