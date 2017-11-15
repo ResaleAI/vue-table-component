@@ -8328,12 +8328,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [(_vm.faPagination) ? _c('span', [_c('i', {
     staticClass: "fa fa-chevron-right"
-  })]) : _vm._e(), _vm._v(" "), _c('span', {
-    directives: [{
-      name: "ielse",
-      rawName: "v-ielse"
-    }]
-  }, [_vm._v(">")])])])])]) : _vm._e()
+  })]) : _c('span', [_vm._v(">")])])])])]) : _vm._e()
 },staticRenderFns: []}
 
 /***/ }),

@@ -10,7 +10,7 @@
             <li class="page-item" :class="{'disabled': nextDisabled}">
                 <a class="page-link" @click.prevent="nextClicked">
                     <span v-if="faPagination"><i class="fa fa-chevron-right"></i></span>
-                    <span v-ielse>&gt;</span>
+                    <span v-else>&gt;</span>
                 </a>
             </li>
         </ul>
