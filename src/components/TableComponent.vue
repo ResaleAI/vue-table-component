@@ -59,9 +59,7 @@
             <slot></slot>
         </div>
 
-        <pagination v-if="pagination" :pagination="pagination" @pageChange="pageChange">
-            <slot name="pagination-previous-content"></slot>
-            <slot name="pagination-next-content"></slot>
+        <pagination v-if="pagination" :pagination="pagination" @pageChange="pageChange" :faPagination="faPagination">
         </pagination>
     </div>
 </template>
@@ -104,6 +102,7 @@
             filterInputClass: { default: settings.filterInputClass },
             filterPlaceholder: { default: settings.filterPlaceholder },
             filterNoResults: { default: settings.filterNoResults },
+            faPagination: { default: false }
         },
 
         data: () => ({

@@ -3,12 +3,14 @@
         <ul class="pagination justify-content-center">
             <li class="page-item" :class="{'disabled': previousDisabled}">
                 <a class="page-link" @click.prevent="previousClicked">
-                    <slot name="pagination-previous-content">&lt;</slot>
+                    <span v-if="faPagination"><i class="fa fa-chevron-left"></i></span>
+                    <span v-ielse>&lt;</span>
                 </a>
             </li>
             <li class="page-item" :class="{'disabled': nextDisabled}">
                 <a class="page-link" @click.prevent="nextClicked">
-                    <slot name="pagination-next-content">&gt;</slot>
+                    <span v-if="faPagination"><i class="fa fa-chevron-right"></i></span>
+                    <span v-ielse>&gt;</span>
                 </a>
             </li>
         </ul>
@@ -24,6 +26,8 @@
                 type: Object,
                 default: () => ({}),
             },
+            faPagination: {
+                default: false,
         },
 
         computed: {
