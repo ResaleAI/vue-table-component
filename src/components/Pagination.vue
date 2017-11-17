@@ -82,7 +82,7 @@
             paginationMessage () {
                 let end     = this.currentPage * 10
                 let start   = end - 9
-                return `Showing ${start} to ${end} of ${this.totalRecords} entries`
+                return `Showing ${start} to ${end > this.totalRecords ? this.totalRecords : end} of ${this.totalRecords} entries`
             }
         },
 
