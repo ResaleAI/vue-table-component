@@ -2291,11 +2291,23 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
                 }
                 return ret;
             },
+            totalRecords: function totalRecords() {
+                var ret = 0;
+                if (!!this.pagination && !!this.pagination.totalRecords) {
+                    ret = this.pagination.totalRecords;
+                }
+                return ret;
+            },
             previousDisabled: function previousDisabled() {
                 return this.currentPage === 1;
             },
             nextDisabled: function nextDisabled() {
                 return this.currentPage === this.totalPages;
+            },
+            paginationMessage: function paginationMessage() {
+                var end = this.currentPage * 10;
+                var start = end - 9;
+                return 'Showing ' + start + ' to ' + end + ' of ' + this.totalRecords + ' entries';
             }
         },
 
@@ -8308,7 +8320,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [(_vm.faPagination) ? _c('span', [_c('i', {
     staticClass: "fa fa-chevron-left"
-  })]) : _c('span', [_vm._v("<")])])]), _vm._v(" "), _c('li', {
+  })]) : _c('span', [_vm._v("Previous")])])]), _vm._v(" "), _c('li', {
     staticClass: "page-item",
     class: {
       'disabled': _vm.nextDisabled
@@ -8323,7 +8335,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [(_vm.faPagination) ? _c('span', [_c('i', {
     staticClass: "fa fa-chevron-right"
-  })]) : _c('span', [_vm._v(">")])])])])]) : _vm._e()
+  })]) : _c('span', [_vm._v("Next")])])])]), _vm._v(" "), _c('span', {
+    staticClass: "pagination__message"
+  }, [_vm._v(_vm._s(_vm.paginationMessage))])]) : _vm._e()
 },staticRenderFns: []}
 
 /***/ }),

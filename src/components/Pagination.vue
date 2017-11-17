@@ -4,16 +4,17 @@
             <li class="page-item" :class="{'disabled': previousDisabled}">
                 <a class="page-link" @click.prevent="previousClicked">
                     <span v-if="faPagination"><i class="fa fa-chevron-left"></i></span>
-                    <span v-else>&lt;</span>
+                    <span v-else>Previous</span>
                 </a>
             </li>
             <li class="page-item" :class="{'disabled': nextDisabled}">
                 <a class="page-link" @click.prevent="nextClicked">
                     <span v-if="faPagination"><i class="fa fa-chevron-right"></i></span>
-                    <span v-else>&gt;</span>
+                    <span v-else>Next</span>
                 </a>
             </li>
         </ul>
+        <span class="pagination__message">{{ paginationMessage }}</span>
     </nav>
 </template>
 
@@ -62,12 +63,26 @@
                 return ret
             },
 
+            totalRecords () {
+                let ret = 0
+                if (!!this.pagination && !!this.pagination.totalRecords) {
+                    ret = this.pagination.totalRecords
+                }
+                return ret
+            },
+
             previousDisabled () {
                 return this.currentPage === 1;
             },
 
             nextDisabled () {
                 return this.currentPage === this.totalPages
+            },
+
+            paginationMessage () {
+                let end     = this.currentPage * 10
+                let start   = end - 9
+                return `Showing ${start} to ${end} of ${this.totalRecords} entries`
             }
         },
 
